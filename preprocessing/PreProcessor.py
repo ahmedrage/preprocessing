@@ -40,7 +40,7 @@ class Preprocessor(object):
         self.ncol = 100
         self.max_cv_count = 4000
         self.cv_length = 500
-        self.output_dir = "E:/Thèse/datasets/dws/"+str(self.cv_length)
+        self.output_dir = "/content/drive/My Drive/ml_output_dir/"+str(self.cv_length)
         self.min_keywords = 20
         self.class_freq_ceil = 10
         self.resume_words = dict()
@@ -289,7 +289,7 @@ class Preprocessor(object):
                                         find = True
                                         break
                                 if find :
-                                    vect = self.wv.word_vec(word, use_norm=True)
+                                    vect = self.wv.word_vec(word, norm=True)
                                     matrix = numpy.append(matrix,numpy.array([vect],dtype=numpy.float32), axis=0)
                                     words.update({cpt:word})
                                     cpt+=1
@@ -555,7 +555,7 @@ class Preprocessor(object):
                                         find = True
                                         break
                                 if find :
-                                    vect = self.wv.word_vec(word, use_norm=True)
+                                    vect = self.wv.word_vec(word, norm=True)
                                     matrix = numpy.append(matrix,numpy.array([vect],dtype=numpy.float32), axis=0)
                                     words.update({cpt:word})
                                     cpt+=1
